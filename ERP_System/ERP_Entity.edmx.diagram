@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="660e9561a15546178ee6aa52e637affb" Name="Diagram1">
+        <EntityTypeShape EntityType="ERP_DBModel.contactPerson" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.customers" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.deliveryOrder" Width="1.5" PointX="6" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.inquiry" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.inquriy_ma" Width="1.5" PointX="5.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.invo_ma" Width="1.5" PointX="5.25" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.invoice" Width="1.5" PointX="3" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.materials" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.orderForm" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.orderForm_ma" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.out_ma" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.quo_ma" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.quotation" Width="1.5" PointX="8.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.re_ven_ma" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.receipt" Width="1.5" PointX="11.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.requisition" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.rfq" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.rfq_ven_ma" Width="1.5" PointX="11.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.sales_ma" Width="1.5" PointX="10.5" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.salesOrder" Width="1.5" PointX="13.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.user" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_DBModel.vendor" Width="1.5" PointX="3.75" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="ERP_DBModel.FK__contactPe__compa__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__deliveryO__compa__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__inquiry__company__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__inquriy_m__compa__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__invo_ma__company__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__invoice__company__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__out_ma__companyC__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__quo_ma__companyC__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__quotation__compa__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__sales_ma__compan__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__salesOrde__compa__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__deliveryO__sales__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__out_ma__delivery__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__inquriy_m__inqui__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__quo_ma__inquiryI__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__quotation__inqui__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__inquriy_m__mater__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__invo_ma__invoice__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__invo_ma__materia__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__materials__vendo__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__orderForm__mater__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__out_ma__material__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__quo_ma__material__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__re_ven_ma__mater__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__rfq_ven_m__mater__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__sales_ma__materi__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__orderForm__order__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__orderForm__rfqID__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__orderForm__vendo__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__orderForm__rfqID__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__out_ma__salesOrd__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__quo_ma__quotatio__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__sales_ma__quotat__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__salesOrde__quota__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__re_ven_ma__requi__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__re_ven_ma__vendo__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__receipt__vendorC__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__rfq_ven_m__rfqID__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__rfq_ven_m__vendo__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.FK__sales_ma__salesO__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_DBModel.rece_ma" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

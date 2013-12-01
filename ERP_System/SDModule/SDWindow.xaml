@@ -1,0 +1,81 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ERP_System="clr-namespace:ERP_System" x:Class="ERP_System.SDModule.SDWindow"
+        Title="SDWindow" Height="384" Width="417" Loaded="Window_Loaded_1">
+    <Window.Resources>
+        <ERP_System:ERP_DBDataSet x:Key="eRP_DBDataSet"/>
+        <CollectionViewSource x:Key="contactPersonViewSource" Source="{Binding contactPerson, Source={StaticResource eRP_DBDataSet}}"/>
+        <CollectionViewSource x:Key="inquiryViewSource" Source="{Binding inquiry, Source={StaticResource eRP_DBDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource contactPersonViewSource}">
+        <TabControl x:Name="SDTabControl" HorizontalAlignment="Left" Height="333" Margin="10,10,0,0" VerticalAlignment="Top" Width="389" TabStripPlacement="Left">
+            <TabItem Header="创建新客户" Height="24" VerticalAlignment="Bottom">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="CompanyNameLabel" Content="公司名：&#xA;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="56"/>
+                    <TextBox x:Name="CompanyNameTextBox" HorizontalAlignment="Left" Height="23" Margin="71,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Label x:Name="CountryLabel" Content="国家：" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="CountryTextBox" HorizontalAlignment="Left" Height="23" Margin="71,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58"/>
+                    <Label x:Name="AddressLabel" Content="地址：" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.478,0.462"/>
+                    <TextBox x:Name="AddressTextBox" HorizontalAlignment="Left" Height="23" Margin="71,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Label x:Name="TexRateLabel" Content="税率：" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TexRateTextBox" HorizontalAlignment="Left" Height="23" Margin="71,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58"/>
+                    <Button x:Name="NewCustomerSaveButton" Content="保存" HorizontalAlignment="Left" Margin="116,297,0,0" VerticalAlignment="Top" Width="75" Click="NewCustomerSaveButton_Click"/>
+                    <Button x:Name="NewCustomerClearButton" Content="清空" HorizontalAlignment="Left" Margin="224,297,0,0" VerticalAlignment="Top" Width="75" Click="NewCustomerClearButton_Click"/>
+                    <Label x:Name="CodeLabel" Content="公司码：" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="CompanyCodeTextBox" HorizontalAlignment="Left" Height="23" Margin="71,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" TextChanged="CompanyCodeTextBox_TextChanged"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="联系人">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="ChoseCustomerLabel" Content="选择客户：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="ChoseCustomerNameTextBox" HorizontalAlignment="Left" Height="23" Margin="77,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+                    <TextBox x:Name="ChoseCustomerCodeTextBox" HorizontalAlignment="Left" Height="23" Margin="77,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+                    <Label x:Name="ChoseCustomerNameLabel" Content="客户名：" HorizontalAlignment="Left" Margin="19,41,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="ChoseCustomerCodeLabel" Content="客户号：" HorizontalAlignment="Left" Margin="19,69,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.138,0.615"/>
+                    <Button x:Name="ChoseCustomerButton" Content="浏览" HorizontalAlignment="Left" Margin="80,13,0,0" VerticalAlignment="Top" Width="75" Click="ChoseCustomerButton_Click"/>
+                    <DataGrid x:Name="contactPersonDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,100,13,93" RowDetailsVisibilityMode="VisibleWhenSelected" MouseDoubleClick="BrowseCustomerDataGrid_MouseDoubleClick" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="companyCodeColumn" Binding="{Binding companyCode}" Header="company Code" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="contacnPersonIDColumn" Binding="{Binding contacnPersonID}" Header="contacn Person ID" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="departmentColumn" Binding="{Binding department}" Header="department" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="genderColumn" Binding="{Binding gender}" Header="gender" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="nameColumn" Binding="{Binding name}" Header="name" Width="SizeToHeader"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="NewContactPerson" Content="新增" HorizontalAlignment="Left" Margin="54,255,0,0" VerticalAlignment="Top" Width="75" Click="NewContactPerson_Click"/>
+                    <Button x:Name="DeleteContactPersonButton" Content="删除" HorizontalAlignment="Left" Margin="191,255,0,0" VerticalAlignment="Top" Width="75" Click="DeleteContactPerson_Click"/>
+                    <Button x:Name="RefreshContactPersonButton" Content="○" HorizontalAlignment="Left" Margin="281,69,0,0" VerticalAlignment="Top" Width="18" Height="26" Click="RefreshContactPersonButton_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="询价单" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="72">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="选择要创建询价单的客户：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="SelectInquiryCustomerButton" Content="选择" HorizontalAlignment="Left" Margin="169,13,0,0" VerticalAlignment="Top" Width="75" Click="SelectInquiryCustomerButton_Click"/>
+                    <Label Content="客户名：" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                    <Label Content="客户号：" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="InquiryCustomerNameTextbox" HorizontalAlignment="Left" Height="23" Margin="73,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+                    <TextBox x:Name="InquiryCustomerCodeTextBox" HorizontalAlignment="Left" Height="23" Margin="73,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+                    <DataGrid x:Name="inquiryDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource inquiryViewSource}}" Margin="10,103,10,37" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="companyCodeColumn1" Binding="{Binding companyCode}" Header="company Code" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="inquiryIDColumn" Binding="{Binding inquiryID}" Header="inquiry ID" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="currencyColumn" Binding="{Binding currency}" Header="currency" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="amountColumn" Binding="{Binding amount}" Header="amount" Width="SizeToHeader"/>
+                            <DataGridTemplateColumn x:Name="creationDateColumn" Header="creation Date" Width="SizeToHeader">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DatePicker SelectedDate="{Binding creationDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="AddInquiryButton" Content="新增" HorizontalAlignment="Left" Margin="28,297,0,0" VerticalAlignment="Top" Width="75" Click="AddInquiryButton_Click"/>
+                    <Button x:Name="DeleteInquriyButton" Content="删除" HorizontalAlignment="Left" Margin="198,297,0,0" VerticalAlignment="Top" Width="75"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

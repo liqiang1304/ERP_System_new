@@ -1,0 +1,24 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ERP_System="clr-namespace:ERP_System" x:Name="___无名称_" x:Class="ERP_System.SDModule.BrowseCustomerDialog"
+        Title="BrowseCustomerDialog" Height="285.941" Width="324.118" Loaded="Window_Loaded_1">
+    <Window.Resources>
+        <ERP_System:ERP_DBDataSet x:Key="eRP_DBDataSet"/>
+        <CollectionViewSource x:Key="customersViewSource" Source="{Binding customers, Source={StaticResource eRP_DBDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource customersViewSource}">
+        <DataGrid x:Name="BrowseCustomerDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,39" RowDetailsVisibilityMode="VisibleWhenSelected" MouseDoubleClick="BrowseCustomerDataGrid_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="companyCodeColumn" Binding="{Binding companyCode}" Header="company Code" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding name}" Header="name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="countryColumn" Binding="{Binding country}" Header="country" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="addressColumn" Binding="{Binding address}" Header="address" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="texRateColumn" Binding="{Binding texRate}" Header="tex Rate" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="SelectButton" Content="选择" HorizontalAlignment="Left" Margin="34,220,0,0" VerticalAlignment="Top" Width="75" Click="SelectButton_Click"/>
+        <Button x:Name="CancelButton" Content="取消" HorizontalAlignment="Left" Margin="206,220,0,0" VerticalAlignment="Top" Width="75" Click="CancelButton_Click"/>
+
+    </Grid>
+</Window>
